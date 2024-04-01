@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    File Browser
+{% endblock title %}
+
+{% block body %}
+
+  <section class="bg-light vh-100 vw-100">
+
+    <div class="container mt-3 d-flex mb-1 create_folder_container">
+
+        <div class="mt-5 me-2">
+          <!-- Form for creating new folder -->
+          <form action="{{ url_for('user.create_folder') }}", method="POST">
+            {{ create_folder_form.csrf_token }}
+            {{ create_folder_form.folder_name.label(class="hide-labels", for="folder_name")}}
+            {{ create_folder_form.folder_name(class="form-control form-control-md") }}
+            {{ create_folder_form.folder_path(class="", value=path_indicator) }}
+            {{ create_folder_form.create_btn(class_="btn btn-sm w-100 mt-1 primary_buttons") }}
+          </form>
+        </div>
+
+        <div class="input-group mb-2 mt-5 text-center">
+          <div class="input-group ">
+            <span class="input-group-text ms-2" id="basic-addon1">
+              <a href="{{ url_for('user.return_to_root') }}"><i class="bi bi-folder2 text-primary"></i></a>
+            </span>
+            <input type="text"
+             class="form-control form-control-md bg-secondary text-light"
+              aria-label="current_working_directory"
+              aria-describedby="working_directory"
+              value="{{ path_indicator }}"
+              name="path_indicator"
+              readonly>
+          </div>
+
+          <div class="form-outline w-100 mt-1">
+            <form action="{{ url_for('user.upload_file') }}" method="POST" enctype=multipart/form-data>
+              {{ upload_file_form.csrf_token }}
+              {{ upload_file_form.upload_file_name.label(class="hide-labels", for="upload_file_name") }}
+              <div class="d-flex">
+                {{ upload_file_form.folder_path(class="", value=path_indicator) }} 
+                {{ upload_file_form.upload_file_name(class="form-control mx-2 form-control-md w-100", id="upload_file_name") }}
+                {{ upload_file_form.upload_btn(class_="btn primary_buttons btn-sm") }}
+              </div>
+            </form>
+          </div>
+        </div>
+            </div>
+      
+    <div class="container bg-light">
+          <table style="width: 100%;" class="ms-4 me-4">
+            <thead>
+              <tr class="">
+                <th class="text_start_table_th">Folders</th>
+                <th class="center_table_th_td">Created Time</th>
+                <th class="center_table_th_td">Modified Time</th>
+                <th class="center_table_th_td">Size</th>
+                <th class="center_table_th_td">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if not parent_path == '..' %}
+              <tr class="text-center">
+                <td class="text_start_table_th">
+                  <a href="">
+                    <a href="{{ url_for('core.index', requested_path=parent_path) }}" class="return_arrow" class="text-primary"><i class="bi bi-arrow-90deg-left"> ..</i></a>
+                  </a>
+                </td>
+              </tr>
+              {% endif %}
+              {% for file in folders %}
+                  {% include 'files_tr.html' %}
+              {% endfor %}
+              
+              {% for file in files %}
+                {% if loop.index == 1 %}
+                  <th class="text_start_table_th">Files</th>
+                  <th class="center_table_th_td">Created Time</th>
+                  <th class="center_table_th_td">Modified Time</th>
+                  <th class="center_table_th_td">Size</th>
+                  <th class="center_table_th_td">Actions</th>
+                {% endif %}
+                  {% include 'files_tr.html' %}
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+  </section>
+
+
+
+  <script src="{{ url_for('static', filename='js/rename_and_delete.js') }}" defer></script>
+{% endblock %}

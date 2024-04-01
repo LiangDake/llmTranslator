@@ -1,0 +1,38 @@
+
+<tr>
+    <td id="td_for_rename text_start_table_th">
+      <span class="hide_display_name ">
+        <a href="{{ url_for('core.index', requested_path=file.file_link) }}" 
+              class="index_files">
+          {% if file.file_type == 'file' %}
+            <i class="{{ file.file_icon }} file_icon"></i> 
+          {% elif file.file_type == 'folder' %}
+            <i class="{{ file.file_icon }} folder_icon"></i> 
+          {% endif %}
+        {{ file.name }}
+        </a>
+      </span>
+      <input
+        class="bg-light index_files new_file_name" 
+        type="text"
+        id="new_file_name"
+        value="{{file.name}}"
+        readonly
+        hidden>
+      <input class="display_name" type="text" value="{{file.name}}" hidden readonly>
+      <button type="submit" class="save_btn text-light px-2" value={{path_indicator}} hidden>Save</button>
+      <button type="submit" class="cancel_btn text-light px-2" hidden>Cancel</button>
+    </td>
+    <td class="center_table_th_td">{{ file.created_time }}</td>
+    <td class="center_table_th_td">{{ file.modified_time }}</td>
+    <td class="center_table_th_td">{{ file.size }}</td>
+    <td class="center_table_th_td">
+      {% if 'file' in file.file_icon %}
+      <a href="{{ url_for('user.download', requested_file=file.file_link) }}" class="ms-2 download_icon"><i class="bi bi-box-arrow-down h4"></i></a>
+      {% else %}
+        <a class="ms-2 right_arrow_icon" href="{{ url_for('core.index', requested_path=file.file_link) }}"><i class="bi bi-arrow-right-square-fill h4"></i></a>
+      {% endif %}
+      <i class="bi bi-pencil-square h4 edit_file_name"></i>
+      <i  class="bi bi-x-square-fill h4 delete_file delete_btn" value={{path_indicator}}></i>
+    </td>
+  </tr>

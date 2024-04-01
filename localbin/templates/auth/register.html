@@ -1,0 +1,55 @@
+{% extends "core/layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+
+<section class="vh-100 bg-light">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-lg-6 col-xl-4 mt-5 d-flex justify-content-center align-items-center border border-1 border-secondary p-5 bg-light shadow">
+          <form action="{{ url_for('auth.register') }}" method="POST" novalidate >
+            {{ form.csrf_token }}
+             <!-- Username input -->
+            <div class="form-outline mb-4">
+              {{ form.username.label(class="form-label hide-labels", for="username") }}
+              {{ form.username(class="form-control form-control-lg", id="username", placeholder="Username") }}
+              {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              {{ form.password.label(class="form-label hide-labels", for="password") }}
+              {{ form.password(class="form-control form-control-lg", placeholder="Password") }}
+              {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </div>
+
+            <!-- Confirm password -->
+            <div class="form-outline mb-4">
+                {{ form.confirm_password.label(class="form-label hide-labels", for="confirm_password") }}
+                {{ form.confirm_password(class="form-control form-control-lg", placeholder="Confirm password") }}
+                {% for error in form.confirm_password.errors %}
+                  <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2 d-flex flex-column ">
+              {{ form.register_btn(class="btn btn-primary btn-lg px-4") }}
+              <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="{{ url_for('auth.login') }} "class="link-danger">Login</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
