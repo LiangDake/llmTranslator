@@ -14,7 +14,7 @@
 - [Ways to improve the app](#ways-to-improve-the-app)
 
 #### UI Preview - Use New picture
-![File Browser](https://github.com/Acrofil/localbin/main/localbin_preview.png)
+![LocalBin](https://github.com/Acrofil/localbin/blob/main/localbin_preview.png)
 
 ## Introduction
 This is simple file browser build with Flask. 
