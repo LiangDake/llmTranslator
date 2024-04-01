@@ -14,7 +14,7 @@
 - [Ways to improve the app](#ways-to-improve-the-app)
 
 #### UI Preview - Use New picture
-![File Browser](https://github.com/Acrofil/emerging-talents-2024-at-exercise/blob/main/file_browser_preview.png)
+![File Browser](https://github.com/Acrofil/localbin/main/localbin_preview.png)
 
 ## Introduction
 This is simple file browser build with Flask. 
@@ -46,7 +46,7 @@ source ./env/bin/activate
 ```bash
 pip install -r requirements.txt
 python
-from file_browser import db
+from localbin import db
 db.create_all()
 ```
 
