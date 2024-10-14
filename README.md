@@ -1,19 +1,5 @@
 # 中科网航大模型平台
 
-# Readme Structure
-- [UI Preview](#ui-Preview)
-- [Introduction](#introduction)
-- Video Demo <https://www.youtube.com/watch?v=Uc2_M43Wz_w>
-- [How To Install](#how-to-install)
-- [Web Client](#web-client)
-- [File System Interaction](#file-system-interaction)
-- [Folder Navigation](#folder-navigation)
-- [File Manipulation](#file-manipulation)
-- [Security Considerations](#security-considerations)
-- [Used Languages and Tools](#used-languages-and-tools)
-- [Ways to improve the app](#ways-to-improve-the-app)
-
-
 ## 产品介绍
 这是使用 Flask, Langchain, Ollama构建的本地大模型翻译网页系统。
 服务器使用 Python `os` 模块与 `Linux` 文件系统交互以执行任务。
@@ -29,7 +15,16 @@ ollama pull qwen2:7b
 ollama pull yxl/m3e
 ```
 
-##### 下载Tesseract及其语言包并安装 PDF 处理库（Linux系统）：
+##### 下载Tesseract及其语言包并安装 PDF 处理库（Arch Linux）：
+```bash
+sudo pacman -S tesseract
+sudo pacman -S tesseract-data
+
+sudo mv srp.traineddata /usr/share/tessdata/
+ls /usr/share/tessdata/
+```
+
+##### 下载Tesseract及其语言包并安装 PDF 处理库（Ubuntu Linux）：
 ```bash
 sudo apt update
 sudo apt install tesseract-ocr
@@ -41,7 +36,7 @@ sudo apt install poppler-utils
 
 ```
 
-##### 下载Tesseract及其语言包并安装 PDF 处理库（Mac系统）：
+##### 下载Tesseract及其语言包并安装 PDF 处理库（MacOS）：
 ```bash
 brew install tesseract
 brew install tesseract-lang
@@ -65,8 +60,6 @@ source ./env/bin/activate
 ##### 下载 requirements.txt 并创建 db 数据库
 ```bash
 pip install -r requirements.txt
-pip install pytesseract pdf2image wand
-pip install python-docx
 
 python
 from localbin import db
