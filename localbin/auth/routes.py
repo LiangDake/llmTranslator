@@ -42,12 +42,12 @@ def register():
             # Check if user exists
             user = User.query.filter_by(username=register_user).first()
             if user:
-                flash(f"User with name '{register_user}' already exists!", category='error')
+                flash(f"'{register_user}' 用户名已存在!", category='error')
                 return redirect("auth.register")
                 
             # Validate that passwords match
             if user_password != confirm_password:
-                flash("Passwords dont match!")
+                flash("密码不匹配!")
                 return redirect("auth.register")
             
             # Hash
@@ -63,8 +63,8 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             
-            flash("Registration succes! Proceed with loging in!")
-            return redirect(url_for("login"))
+            flash("注册成功，请登陆！")
+            return redirect(url_for("auth.login"))
         
         redirect(url_for("auth.register"))
     
@@ -84,7 +84,7 @@ def login():
             login_password = form.password.data
             
             user = User.query.filter_by(username=login_username).first()
-            wrong_credentials_error = "Incorect username or password!"
+            wrong_credentials_error = "用户名或密码不正确！"
             
             if not user:
                 flash(wrong_credentials_error)
@@ -92,12 +92,12 @@ def login():
             
             if not check_password_hash(user.password, login_password):
                 flash(wrong_credentials_error)
-                return redirect(url_for("/auth.login"))
+                return redirect(url_for("auth.login"))
                 
             login_user(user)
             session["user"] = user.username
             
-            flash("Login success!")
+            flash("登陆成功!")
             return redirect(url_for('core.index')) 
           
     return render_template("login.html", form=form)
@@ -111,5 +111,5 @@ def logout():
     """
     logout_user()
     session.clear()
-    flash("Logged out!")
+    flash("已退出登陆！")
     return redirect("auth.login")

@@ -1,0 +1,394 @@
+[
+    {
+        "Code": "amh",
+        "Title": "Amharic(阿姆哈拉语)"
+    },
+    {
+        "Code": "ara",
+        "Title": "Arabic(阿拉伯语)"
+    },
+    {
+        "Code": "asm",
+        "Title": "Assamese(阿萨姆)"
+    },
+    {
+        "Code": "aze",
+        "Title": "Azerbaijani(阿塞拜疆)"
+    },
+    {
+        "Code": "aze_cyrl",
+        "Title": "(阿塞拜疆-Cyrilic)"
+    },
+    {
+        "Code": "bel",
+        "Title": "Belarusian(白俄罗斯)"
+    },
+    {
+        "Code": "ben",
+        "Title": "Bengali(孟加拉)"
+    },
+    {
+        "Code": "bod",
+        "Title": "Tibetan(西藏)"
+    },
+    {
+        "Code": "bos",
+        "Title": "Bosnian(波斯尼亚)"
+    },
+    {
+        "Code": "bul",
+        "Title": "Bulgarian(保加利亚语)"
+    },
+    {
+        "Code": "cat",
+        "Title": "加泰罗尼亚语; 巴伦西亚)"
+    },
+    {
+        "Code": "ceb",
+        "Title": "Cebuano(宿务)"
+    },
+    {
+        "Code": "ces",
+        "Title": "Czech(捷克)"
+    },
+    {
+        "Code": "chi_sim",
+        "Title": "(中国-简体)"
+    },
+    {
+        "Code": "chi_tra",
+        "Title": "(中国-繁体)"
+    },
+    {
+        "Code": "chr",
+        "Title": "Cherokee(切诺基)"
+    },
+    {
+        "Code": "cym",
+        "Title": "Welsh(威尔士)"
+    },
+    {
+        "Code": "dan",
+        "Title": "Danish(丹麦)"
+    },
+    {
+        "Code": "dan_frak",
+        "Title": "(丹麦-Fraktur)"
+    },
+    {
+        "Code": "deu",
+        "Title": "German(德国)"
+    },
+    {
+        "Code": "deu_frak",
+        "Title": "(德国-Fraktur)"
+    },
+    {
+        "Code": "dzo",
+        "Title": "Dzongkha(不丹文)"
+    },
+    {
+        "Code": "ell",
+        "Title": "(希腊，现代（1453-）)"
+    },
+    {
+        "Code": "eng",
+        "Title": "English(英语)"
+    },
+    {
+        "Code": "epo",
+        "Title": "Esperanto(世界语)"
+    },
+    {
+        "Code": "equ",
+        "Title": "(数学/方程式检测模块)"
+    },
+    {
+        "Code": "est",
+        "Title": "Estonian(爱沙尼亚)"
+    },
+    {
+        "Code": "eus",
+        "Title": "Basque(巴斯克)"
+    },
+    {
+        "Code": "fas",
+        "Title": "Persian(波斯)"
+    },
+    {
+        "Code": "fin",
+        "Title": "Finnish(芬兰)"
+    },
+    {
+        "Code": "fra",
+        "Title": "French(法语)"
+    },
+    {
+        "Code": "frk",
+        "Title": "Frankish(法兰克)"
+    },
+    {
+        "Code": "gle",
+        "Title": "Irish(爱尔兰)"
+    },
+    {
+        "Code": "glg",
+        "Title": "Galician(加利西亚)"
+    },
+    {
+        "Code": "guj",
+        "Title": "Gujarati(古吉拉特语)"
+    },
+    {
+        "Code": "heb",
+        "Title": "Hebrew(希伯来语)"
+    },
+    {
+        "Code": "hin",
+        "Title": "Hindi(印地文)"
+    },
+    {
+        "Code": "hrv",
+        "Title": "Croatian(克罗地亚)"
+    },
+    {
+        "Code": "hun",
+        "Title": "Hungarian(匈牙利)"
+    },
+    {
+        "Code": "iku",
+        "Title": "Inuktitut(因纽特语)"
+    },
+    {
+        "Code": "ind",
+        "Title": "Indonesian(印尼)"
+    },
+    {
+        "Code": "isl",
+        "Title": "Icelandic(冰岛)"
+    },
+    {
+        "Code": "ita",
+        "Title": "Italian(意大利语)"
+    },
+    {
+        "Code": "ita_old",
+        "Title": "Italian - Old(意大利语-旧)"
+    },
+    {
+        "Code": "jav",
+        "Title": "Javanese(爪哇)"
+    },
+    {
+        "Code": "jpn",
+        "Title": "Japanese(日本)"
+    },
+    {
+        "Code": "kan",
+        "Title": "Kannada(卡纳达语)"
+    },
+    {
+        "Code": "kat",
+        "Title": "Georgian(格鲁吉亚)"
+    },
+    {
+        "Code": "kat_old",
+        "Title": "Georgian - Old(格鲁吉亚-旧)"
+    },
+    {
+        "Code": "kaz",
+        "Title": "Kazakh(哈萨克斯坦)"
+    },
+    {
+        "Code": "khm",
+        "Title": "Central Khmer(中央高棉)"
+    },
+    {
+        "Code": "kir",
+        "Title": "(柯尔克孜; 吉尔吉斯)"
+    },
+    {
+        "Code": "kor",
+        "Title": "Korean(韩国)"
+    },
+    {
+        "Code": "kur",
+        "Title": "Kurdish(库尔德人)"
+    },
+    {
+        "Code": "lao",
+        "Title": "Lao(老挝)"
+    },
+    {
+        "Code": "lat",
+        "Title": "Latin(拉丁)"
+    },
+    {
+        "Code": "lav",
+        "Title": "Latvian(拉脱维亚)"
+    },
+    {
+        "Code": "lit",
+        "Title": "Lithuanian(立陶宛)"
+    },
+    {
+        "Code": "mal",
+        "Title": "Malayalam(马拉雅拉姆语)"
+    },
+    {
+        "Code": "mar",
+        "Title": "Marathi(马拉)"
+    },
+    {
+        "Code": "mkd",
+        "Title": "Macedonian(马其顿)"
+    },
+    {
+        "Code": "mlt",
+        "Title": "Maltese(马耳他)"
+    },
+    {
+        "Code": "msa",
+        "Title": "Malay(马来文)"
+    },
+    {
+        "Code": "mya",
+        "Title": "Burmese(缅甸)"
+    },
+    {
+        "Code": "nep",
+        "Title": "Nepali(尼泊尔)"
+    },
+    {
+        "Code": "nld",
+        "Title": "Dutch; Flemish(荷兰; 佛兰芒语)"
+    },
+    {
+        "Code": "nor",
+        "Title": "Norwegian(挪威)"
+    },
+    {
+        "Code": "ori",
+        "Title": "Oriya(奥里亚语)"
+    },
+    {
+        "Code": "pol",
+        "Title": "Polish(波兰)"
+    },
+    {
+        "Code": "por",
+        "Title": "Portuguese(葡萄牙语)"
+    },
+    {
+        "Code": "pus",
+        "Title": "(普什图语; 普什图语)"
+    },
+    {
+        "Code": "ron",
+        "Title": "(罗马尼亚; 摩尔多瓦; 摩尔多瓦)"
+    },
+    {
+        "Code": "rus",
+        "Title": "Russian(俄罗斯)"
+    },
+    {
+        "Code": "san",
+        "Title": "Sanskrit(梵文)"
+    },
+    {
+        "Code": "slk",
+        "Title": "Slovak(斯洛伐克)"
+    },
+    {
+        "Code": "slk_frak",
+        "Title": "(斯洛伐克- Fraktur)"
+    },
+    {
+        "Code": "slv",
+        "Title": "Slovenian(斯洛文尼亚)"
+    },
+    {
+        "Code": "spa",
+        "Title": "(西班牙语; 卡斯蒂利亚)"
+    },
+    {
+        "Code": "sqi",
+        "Title": "Albanian(阿尔巴尼亚)"
+    },
+    {
+        "Code": "srp",
+        "Title": "Serbian(塞尔维亚)"
+    },
+    {
+        "Code": "srp_latn",
+        "Title": "Serbian(塞尔维亚语-拉丁语)"
+    },
+    {
+        "Code": "swa",
+        "Title": "Swahili(斯瓦希里语)"
+    },
+    {
+        "Code": "swe",
+        "Title": "Swedish(瑞典)"
+    },
+    {
+        "Code": "syr",
+        "Title": "Syriac(叙利亚)"
+    },
+    {
+        "Code": "tam",
+        "Title": "Tamil(泰米尔)"
+    },
+    {
+        "Code": "tel",
+        "Title": "Telugu(泰卢固语)"
+    },
+    {
+        "Code": "tgk",
+        "Title": "Tajik(塔吉克斯坦)"
+    },
+    {
+        "Code": "tgl",
+        "Title": "Tagalog(菲律宾语)"
+    },
+    {
+        "Code": "tha",
+        "Title": "Thai(泰国)"
+    },
+    {
+        "Code": "tir",
+        "Title": "Tigrinya(提格雷语)"
+    },
+    {
+        "Code": "tur",
+        "Title": "Turkish(土耳其)"
+    },
+    {
+        "Code": "uig",
+        "Title": "(维吾尔族; 维吾尔)"
+    },
+    {
+        "Code": "ukr",
+        "Title": "Ukrainian(乌克兰)"
+    },
+    {
+        "Code": "urd",
+        "Title": "Urdu(乌尔都语)"
+    },
+    {
+        "Code": "uzb",
+        "Title": "Uzbek(乌兹别克斯坦)"
+    },
+    {
+        "Code": "uzb_cyrl",
+        "Title": "(乌兹别克斯坦- Cyrilic)"
+    },
+    {
+        "Code": "vie",
+        "Title": "Vietnamese(越南语)"
+    },
+    {
+        "Code": "yid",
+        "Title": "Yiddish(意第绪语)"
+    }
+]

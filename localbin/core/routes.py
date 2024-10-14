@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 
@@ -42,7 +43,10 @@ def index(requested_path):
 
     parent_path = os.path.relpath(Path(abs_path).parents[0], user_folder)
     path_indicator = get_user_location_path(parent_path, requested_path)
-    
+
+    with open('localbin/translator/language.json', 'r', encoding='utf-8') as f:
+        languages = json.load(f)
+
     return render_template("index.html", 
                            user_folder=user_folder, 
                            folders=folders,
@@ -51,6 +55,7 @@ def index(requested_path):
                            path_indicator=path_indicator,
                            create_folder_form=create_folder_form, 
                            upload_file_form=upload_file_form,
+                           languages=languages,
                            os=os)
 
 

@@ -19,6 +19,7 @@ load_dotenv('.env.development')
 
 # Init flask app
 app = Flask(__name__)
+
 csrf = CSRFProtect()
 
 # Get secret key from .env 
@@ -54,7 +55,7 @@ UPLOAD_FOLDER = 'users_space'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Configure allowed files and max size
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mkv', 'avi'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mkv', 'avi', 'eml', 'zip'}
 
 app.config['MAX_CONTENT_LENGTH'] = (15 * 1024) * 1024
 
@@ -77,8 +78,8 @@ db_name = "localbin.db"
 app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///" +os.path.join(basedir, db_name)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['WTF_CSRF_UNABLED'] = True
-
+app.config['WTF_CSRF_UNABLED'] = False
+app.config['WTF_CSRF_METHODS'] = []
 # Init db and migrate
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -97,11 +98,13 @@ from localbin.events.user_listener import create_home_dir_after_insert
 from localbin.auth.routes import auth
 from localbin.core.routes import core
 from localbin.user.routes import user
+from localbin.translator.routes import translator  # 你定义的蓝图所在的模块
 
 # Registering blueprints
 app.register_blueprint(auth)
 app.register_blueprint(core)
 app.register_blueprint(user)
+app.register_blueprint(translator)  # 注册蓝图
 
 # User loader callback to reload user id stored in session or return None and not raise exception
 @login_manager.user_loader

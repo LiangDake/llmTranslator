@@ -1,0 +1,359 @@
+Received: from SYBPR01MB6174.ausprd01.prod.outlook.com (2603:10c6:10:104::5)
+ by SY6PR01MB8268.ausprd01.prod.outlook.com with HTTPS; Sun, 30 Jun 2024
+ 21:08:34 +0000
+Received: from MEWP282CA0221.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:1ec::17)
+ by SYBPR01MB6174.ausprd01.prod.outlook.com (2603:10c6:10:104::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.32; Sun, 30 Jun
+ 2024 21:08:32 +0000
+Received: from ML1PEPF00011309.ausprd01.prod.outlook.com
+ (2603:10c6:220:1ec:cafe::53) by MEWP282CA0221.outlook.office365.com
+ (2603:10c6:220:1ec::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.32 via Frontend
+ Transport; Sun, 30 Jun 2024 21:08:32 +0000
+Authentication-Results: spf=pass (sender IP is 69.169.235.185)
+ smtp.mailfrom=ap-southeast-2.amazonses.com; dkim=pass (signature was
+ verified) header.d=instructure.com;dmarc=pass action=none
+ header.from=instructure.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ ap-southeast-2.amazonses.com designates 69.169.235.185 as permitted sender)
+ receiver=protection.outlook.com; client-ip=69.169.235.185;
+ helo=b235-185.smtp-out.ap-southeast-2.amazonses.com; pr=C
+Received: from b235-185.smtp-out.ap-southeast-2.amazonses.com (69.169.235.185)
+ by ML1PEPF00011309.mail.protection.outlook.com (10.167.241.86) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7741.18
+ via Frontend Transport; Sun, 30 Jun 2024 21:08:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=py5iqjrdvdgjpzha3sv64mxf4n7vyfio; d=instructure.com;
+	t=1719781712;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ndPVrz3m0n+HVs6TL3JcfXJlkZ3ci3UvMf1ixaDvtPI=;
+	b=TMyQtD4bGnSSlGDICkGxcFLPORsRz1eg/uSZ319wzwte1riZ4GzqZwuhf9cGPT76
+	OPsHTPHS5hSo/opIa2QhKIWvan+D5ZUtknzWPimIEIgL3vjBbHSbWUrCelxQ4vtWDuR
+	rTK0qQqTLDb1QlMHRBS1CaO/Ri8eZ08L1KD4lDjnQmTderF1iV+1VBK4hhSsdOiDedA
+	dfh4eeK1SGG54VXr++6oMsAZ5lvVCJ7cKZXpMf33IYtm/Xv/2d8lb93SpiErfbGFAYs
+	hBlWYiWMX0+XxOgNR8PC8DSP48ao6FLsJ2pcLIOkd0ysO9vwr7fTL62KQNXMZvSpHnD
+	JlyK0ICbJw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=c4g6esh62r66f7jpbbidkgju554h65ib; d=amazonses.com; t=1719781712;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=ndPVrz3m0n+HVs6TL3JcfXJlkZ3ci3UvMf1ixaDvtPI=;
+	b=YsD8MrIZD4U36tjY8aHFAvggdhop9SadVMVQhG20QL3AQ19En/wuNGyg0UsHxY/9
+	u3SVP/WW2NUhle7oV+6Hrjv6zf7ihIfjuzER5rcz2dg6hgbLgM7ovL6vCOjWdm06Q0T
+	1aKORb9yEX4KmCHY8eeIVBssyZKMaeggjBDzp87g=
+X-On-bounce-route-to: notification-service-failures-syd-prod
+Date: Sun, 30 Jun 2024 21:08:32 +0000
+From: "24.1.AIML231-DATA302: Machine Learning Techniques for Data Science" <notifications@instructure.com>
+Reply-To: reply+81bc83872b5edddf-21939~17049962-1719781694@notifications.canvaslms.com
+To: liangke@myvuw.ac.nz
+Message-ID: <010801906afa6264-f2f45b71-03f2-473f-bec7-805a60ad39c4-000000@ap-southeast-2.amazonses.com>
+Subject: Request to access AIML231 Exam: 24.1.AIML231-DATA302: Machine
+ Learning Techniques for Data Science
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6681c950676de_18a954b0088192";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.ap-southeast-2.6IDSr0/hi0Dlg0gTVpLVEF3mPd02f/mjnjpULyyGkN8=:AmazonSES
+X-SES-Outgoing: 2024.06.30-69.169.235.185
+Return-Path:
+ 010801906afa6264-f2f45b71-03f2-473f-bec7-805a60ad39c4-000000@ap-southeast-2.amazonses.com
+X-MS-Exchange-Organization-ExpirationStartTime: 30 Jun 2024 21:08:32.8623
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 3ee45cc6-892e-43db-9dca-08dc9948cc92
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: ece73f9a-ba85-4235-b183-688048b0c0ae:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ ML1PEPF00011309:EE_|SYBPR01MB6174:EE_|SY6PR01MB8268:EE_
+X-MS-Exchange-Organization-AuthSource:
+ ML1PEPF00011309.ausprd01.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 3ee45cc6-892e-43db-9dca-08dc9948cc92
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-Organization-SCL: -1
+X-MYVUWRule-WhitelistedDomains: Rule triggered
+X-Microsoft-Antispam:
+ BCL:2;ARA:13230040|4092899012|13012899012|5062899012|12012899012|13102899012|69100299015|5082899009|6062899009|2092899012|3072899012|3092899012|32142699015;
+X-Forefront-Antispam-Report:
+ CIP:69.169.235.185;CTRY:AU;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:SKN;H:b235-185.smtp-out.ap-southeast-2.amazonses.com;PTR:b235-185.smtp-out.ap-southeast-2.amazonses.com;CAT:NONE;SFS:(13230040)(4092899012)(13012899012)(5062899012)(12012899012)(13102899012)(69100299015)(5082899009)(6062899009)(2092899012)(3072899012)(3092899012)(32142699015);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2024 21:08:32.7998
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ee45cc6-892e-43db-9dca-08dc9948cc92
+X-MS-Exchange-CrossTenant-Id: ece73f9a-ba85-4235-b183-688048b0c0ae
+X-MS-Exchange-CrossTenant-AuthSource:
+ ML1PEPF00011309.ausprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SYBPR01MB6174
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.6829417
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7719.007
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?c1I3eUY0RjdTRmtMSDlza0FOVVY3WG9HY1RYQ21WbDNRTzhsc0FIZjc2K2d0?=
+ =?utf-8?B?Yks3NG91QnR4YnFDNTI4bFArTnR2K09scEJMU2tuSXY5RnhISy9uc3RXOGRp?=
+ =?utf-8?B?am1tZVZ0Q3lIRFRWUThJTUkwL0JpNHZXL2FnUDhuWWloV1JwY3ZLWTlOMzJh?=
+ =?utf-8?B?aEdpWjMvZnlqRkMxcnRyMktZcHp5MGlsNTZaRUJLT2dlL0M4U3FZWnZheHFl?=
+ =?utf-8?B?M2ZHbHVlN3NLYWNkM2k3MTNYVENtT0xCZEVXOUd5Zlg0ZXJ2alFQMCtnSWo1?=
+ =?utf-8?B?eVB5eWNORjVRQ2dJSzRnN1U0RkNGVWV4WjEwTWNwUG1CQVVVMjV4bU5BZWtV?=
+ =?utf-8?B?SFluYW91eEJ1Rm5yMzdkUjRCeFZvbkRxTEVQRVhGVGdJRVQxWEtNTGVFRFlo?=
+ =?utf-8?B?d2lyaXdNbG9yVUNFaUZWOXdoY3Nmb1hZbnV6eFJRS0IwTU1OZ0YvR2V4b25i?=
+ =?utf-8?B?V2hvMTdpN0ZibXJwUHVsZFhpYUpZenZoR0lSS3dqZkJwa2tIVy9xWk15eExh?=
+ =?utf-8?B?Ly80SE1HUmhWU2t5b2d5aDF0SHJ0TVNESThJVTVZL3dHNjhqWGRBclkwSVdL?=
+ =?utf-8?B?b2NWdHFWa3M5NWdTRDhvT0JOV2tUemZablFWN2cyMG5JeWE4a2NjUDV3dHYx?=
+ =?utf-8?B?NldJcDhEajhLWE9pSWhVVUw4Nys2V0FMNys3TnlYa25haVJXbGJPdzZGcS85?=
+ =?utf-8?B?MW9ackkvZ3lCMjBkYS9CdTNaLzlhOUdvYVVnZXVqdkZpV1BGd1BUUWN4TXFj?=
+ =?utf-8?B?Z1FxV3RHMTBrY2I3dUVSYU4wZE9NYWtNcUtLZEpEenhyQit1d1hUTElhK0tR?=
+ =?utf-8?B?aXpIRktld3ROQTRONlJYV094MUI3YVNhWWgwZGhlUE5pN2EzK1ludzVuU1B1?=
+ =?utf-8?B?RUpMZU04OHU4MUF3Yk9Tdi9oUWRmUkRxRVQrNExEaUJkTVVSL0Fmc0Fhc1Vz?=
+ =?utf-8?B?ZGlQcXVKK3NDWUhFZzNZODlMZ0lTVE1kMUdwanpjNUw4ekFWR2Zzb28xeUR6?=
+ =?utf-8?B?MzM4RGVEaFZEdW5yL2N6YmRCQWw1OFVvTUt2cWkvOEhVR1lrdWxiaEtIL1BL?=
+ =?utf-8?B?cVhEOTVMZm80dWdQNXpqSnB3bGZ1YW1EZG1BSmoxTHc0UENmY0QxdHArTjd6?=
+ =?utf-8?B?QkhJblh4V2IwUldzTjBoMjdPc1B1dFBSVGxsdi9xcmFGbFhReDUvWDE4U0ZI?=
+ =?utf-8?B?MVNPS0kxakxOaUlLSTRmZklHWTNielJJOTlZZEVtYlNlUFlLM2JmRHB4MkF3?=
+ =?utf-8?B?WGxpcENwM20zQVpDQ1FoTFU1ck9QMTBvREVhejhXRDNad0oyN0hhb1RsODF3?=
+ =?utf-8?B?QWZLWG1JcU12SDJxWWRhaDFHL2ZpOFZhWC9zTUdZdC9PdXE2SklETzgwTFFF?=
+ =?utf-8?B?bW8xVGVsRnpJV1hPQU9JdmV3UlprUGxUZm1uSVZCWTZ5K29UZW56bmZrYi83?=
+ =?utf-8?B?VEhWT3VNdEZRTStyclRwSDRxVXpNWVQvbmFDYVpzZGRnQmVzUzZWaTROalQ1?=
+ =?utf-8?B?bjltQ1BhbWJ3eWNYb256ZTcwQzNtODI5bm5LYXVrb0xmdGFKaE1WVDZQcWJu?=
+ =?utf-8?B?ZFBvMHJhSTJOeDE3NS9mWmFGa3lscGFSdnVCbjZENllZNlR3dkR4VWNDcW0x?=
+ =?utf-8?B?djVwVGRvZWMwRjE2VWNIQmdKL2VYczRHRGlSZ2wrWTN2d2YyMUd5bUNsNTcv?=
+ =?utf-8?B?ZGd1dnlFenRvNXJUT1RRejlWS2VBcmF3ZGVYUUl2eGhqT0JiTlhjaXdiM25n?=
+ =?utf-8?B?dmpnMEk4YUtpN2VOL1ZFRnNTUkE5YXVkRnpTQUZSa29TRG4yNWtPZWxQZHlE?=
+ =?utf-8?B?UTlaOWVqcFNtRTBRYlRJakI2TnFBU2kySStLQ1FPNmJMZW9CRVhhL1Axd29k?=
+ =?utf-8?B?VitDSWhjRnV2OU9TKzhuSk9JYys0ODUrNWtPTzFCRGs5RVFpSWFvelNqRWNz?=
+ =?utf-8?B?Y3l6OHVlWXA3aGpiTzNUa2FUcEdVZkNMOWduV0kyb2swMEFIQmtYZkJSa2hC?=
+ =?utf-8?B?VmxlbDJ3ZGhjSjRCcGNUcU1TZXZqTnJjbmVGS1AzL3lPV05xV3dnMnVYRWE1?=
+ =?utf-8?B?Mlluc3FJVHZDTno5S0luWi8zNzBUb3JuMTFQUm1tcEpQRkwxMzdlMGp6WmE2?=
+ =?utf-8?B?QzdMeUxyeXlYc21xd3hPQmwreS9qeTZOZjNOcnlCelN2OVE4elA1R29GS2Vo?=
+ =?utf-8?B?MGh5YXY5bHJsMXhUTDV3eDE0S29oTHUrazB2TWJRcVRZMEpuOEsyZWtITm5v?=
+ =?utf-8?B?eFd0Y2ROdENXWmloeGxFT0VvUWhmdmYvSU9PSGJQRnFUTGRtRk9JTExRbGF5?=
+ =?utf-8?B?bU8wNmxBMEowdjVweEtLOXlPMnM2cU1TNVMvMVRwWFFpQmdsRDNsR2J6ejhX?=
+ =?utf-8?B?cHVxQWVaQ09yWWlLSklUZm1TZi9iUjhYUnZNVldUMDdvR1R5ekZ0STZ6Sldw?=
+ =?utf-8?B?VUZOeXlETWp1YmxiYUFibGhrK1dxV2loWkhwSUZjclE3TndiQytyVStOTkdn?=
+ =?utf-8?B?RWJaRDh4ZHpDQzNjeU4zcFRFK0JYMGFLUldjUWhUT2dIK2pJMjhCaFZldW1Z?=
+ =?utf-8?B?bldvU3ZtMkFQNnNSM21ZSmdMaTdnK0Jab0N4bmJzYVBqbkUrMzZRZXZLR04z?=
+ =?utf-8?B?SmJBdkVNc3R6Q2x4dzVPT0dWbHBKMTh5UFE0VzRHclF5dytwdG9vRVRGOGF6?=
+ =?utf-8?B?S1NMT2h2MCtWVyt5K2NNZWRZci85RldEdm15QjJEU01iNDlQNWpFalJwdDNP?=
+ =?utf-8?B?ZmVJcTRPOTlhbGN1WGRtN3JLNjhJU0VVSnJ2V0ZwcUhjeCtZRERTU2lxdWlD?=
+ =?utf-8?B?V3MxWExydmZIdE1vSVJ4K2x4d2VpbkpoN2JET0t0VEpFMUlXclhvZ3hNL1pD?=
+ =?utf-8?B?bWZxSTdlVzBVTmwzRVV3TE1Xd3pQVG90RCtScWh5U1ArcEJoUVFER1dXSUhj?=
+ =?utf-8?Q?4qUHakJqrJ4UF72v?=
+MIME-Version: 1.0
+
+----==_mimepart_6681c950676de_18a954b0088192
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+This assessment item has been delivered to the School Office and is avail=
+able to request from July 1, 2024.=C2=A0
+
+To ensure the integrity of the appeal process, students can only request =
+to=E2=80=AFview=E2=80=AFthe original item under supervision during an ini=
+tial reconsideration period (10 working days).=E2=80=AFAfter the initial =
+reconsideration period, students will be able to request to=E2=80=AFcolle=
+ct=E2=80=AFthe original paper-based assessment item.=E2=80=AFA request mu=
+st always be made, even if the assessment has been previously=E2=80=AFvie=
+wed=E2=80=AFby the student.=C2=A0
+
+Students can view the availability and type of access to their paper-base=
+d assessment item before submitting a=E2=80=AF[request] (https://ecs.wgtn=
+.ac.nz/apps/assessment-return/).=E2=80=AF=C2=A0
+
+After submitting a request, students need to allow=E2=80=AFtwo working da=
+ys=E2=80=AFfor processing before viewing or collecting the assessment ite=
+m from:=C2=A0
+
+School Office (CO358)=C2=A0
+Monday to Friday=C2=A0
+10:00 am =E2=80=93 12:00 pm=C2=A0
+1:00 pm =E2=80=93 3:00 pm=C2=A0
+
+
+https://nuku.wgtn.ac.nz/courses/22481/announcements/126237
+
+
+
+
+
+
+________________________________________
+
+You received this email because you are participating in one or more clas=
+ses using Canvas.  To change or turn off email notifications, visit: =
+
+https://nuku.wgtn.ac.nz/profile/communication
+
+
+----==_mimepart_6681c950676de_18a954b0088192
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"en-GB"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+ =20
+  <style type=3D"text/css">
+/*
+Changes to font size (14->16) for smaller screens
+table[class=3Dbody] is the only selector that works for all vendors
+*/
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] p,
+  table[class=3Dbody] ul,
+  table[class=3Dbody] ol,
+  table[class=3Dbody] td,
+  table[class=3Dbody] span,
+  table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+  /* remove padding for mobile so no gray shows */
+  table[class=3Dbody] .bodycell {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* reduce padding from 20->10 for mobile */
+  table[class=3Dbody] .maincell {
+    padding: 10px !important;
+  }
+}
+/*
+ExternalClass fixes Outlook.com / Hotmail emails
+*/
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass,
+  .ExternalClass p,
+  .ExternalClass span,
+  .ExternalClass font,
+  .ExternalClass td,
+  .ExternalClass div {
+    line-height: 100%;
+  }
+}
+  </style>
+</head>
+<!--
+background: white (could be gray)
+default sans serif fonts, 14px, 1.3, #444444
+vendor prefixes for Outlook (-ms) and iOS (-webkit)
+Margin is capitalized to fix Outlook.com
+-->
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open Sans'=
+, 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahom=
+a, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Margin:0;=
+ padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased; =
+-webkit-text-size-adjust:100%;">
+
+  <!-- body: background table (if body has a color, this should match) -->
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" st=
+yle=3D"border-collapse:separate; background-color:#ffffff; width:100%; box-=
+sizing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tr>
+      <!-- width and max-width so it can scale for mobile -->
+      <td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-fam=
+ily:'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans =
+Unicode', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; display=
+:block; box-sizing:border-box; padding:10px; Margin:0 auto !important;">
+
+<!-- for older versions of Outlook that don't support max-width -->
+<!--[if (gte mso 9)|(IE)]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td>
+<![endif]-->
+
+        <!-- main: white box for content -->
+        <table class=3D"main" style=3D"background:#fff; width:100%; border-=
+collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+          <tr>
+            <td class=3D"maincell" style=3D"font-family:sans-serif; font-si=
+ze:14px; vertical-align:top; box-sizing:border-box; padding:20px;">
+
+                   =20
+<p><span>This assessment item has been delivered to the School Office and i=
+s available to request from July 1, 2024.</span><span>&nbsp;</span></p><p><=
+span>To ensure the integrity of the appeal process, students can only reque=
+st to=E2=80=AF</span><strong><span>view</span></strong><span>=E2=80=AFthe o=
+riginal item under supervision during an initial reconsideration period (10=
+ working days).=E2=80=AFAfter the initial reconsideration period, students =
+will be able to request to=E2=80=AF</span><strong><span>collect</span></str=
+ong><span>=E2=80=AFthe original paper-based assessment item.=E2=80=AFA requ=
+est must always be made, even if the assessment has been previously=E2=80=
+=AFviewed=E2=80=AFby the student.</span><span>&nbsp;</span></p><p><span>Stu=
+dents can view the availability and type of access to their paper-based ass=
+essment item before </span><strong><span>submitting a=E2=80=AF</span></stro=
+ng><a href=3D"https://ecs.wgtn.ac.nz/apps/assessment-return/"><strong><span=
+>request</span></strong></a><strong><span>.</span></strong><span>=E2=80=AF<=
+/span><span>&nbsp;</span></p><p><span>After submitting a request, students =
+need to allow</span><strong><span>=E2=80=AFtwo working days=E2=80=AF</span>=
+</strong><span>for processing before viewing or collecting the assessment i=
+tem from:</span><span>&nbsp;</span></p><p><strong><span>School Office (CO35=
+8)</span></strong><span>&nbsp;<br></span><span>Monday to Friday</span><span=
+>&nbsp;<br></span><span>10:00 am =E2=80=93 12:00 pm</span><span>&nbsp;<br><=
+/span><span>1:00 pm =E2=80=93 3:00 pm</span><span>&nbsp;</span></p>
+
+
+
+
+            </td>
+          </tr>
+        </table>
+        <!-- /.main -->
+
+        <!-- logo: branding -->
+        <table class=3D"logo" style=3D"width:100%; box-sizing:border-box; b=
+order-collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+          <tr>
+            <td class=3D"logocell" style=3D"text-align:center; vertical-ali=
+gn:top; box-sizing:border-box; padding:10px;">
+              <img src=3D"https://du11hjcvx0uqb.cloudfront.net/dist/images/=
+email_signature-d2c5880612.png" alt=3D"">
+            </td>
+          </tr>
+        </table>
+        <!-- /.logo -->
+
+        <!-- footer: gray text below main -->
+        <table class=3D"footer" style=3D"width:100%; box-sizing:border-box;=
+ border-collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+          <tr>
+            <td class=3D"footercell" style=3D"font-family:sans-serif; font-=
+size:14px; vertical-align:top; color:#a8b9c6; font-size:12px; text-align:ce=
+nter; padding:10px; box-sizing:border-box; ">
+
+                <a href=3D"https://nuku.wgtn.ac.nz/courses/22481/announceme=
+nts/126237">
+    View announcement
+  </a> &nbsp;|&nbsp;
+
+                <a href=3D"https://nuku.wgtn.ac.nz/profile/communication" s=
+tyle=3D"white-space: nowrap;">Update your notification settings</a>
+
+            </td>
+          </tr>
+        </table>
+        <!-- /.footer -->
+
+<!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]-->
+
+      </td>
+    </tr>
+  </table>
+  <!-- /.body -->
+
+</body>
+</html>
+
+----==_mimepart_6681c950676de_18a954b0088192--

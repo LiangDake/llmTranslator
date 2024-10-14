@@ -50,7 +50,7 @@ def create_folder():
         
         # Check if new folder exists
         if os.path.exists(abs_path_to_folder):
-            flash(f"Folder with name '{sanitized_folder_name}' already exists")
+            flash(f"与 '{sanitized_folder_name}' 同名文件夹已存在，请修改文件夹名称！")
             return redirect_url_to_page_and_path(current_path)
         
         # Create new folder or catch exception
@@ -119,7 +119,7 @@ def verify_file(response):
             flash(f"Integrity error! Please try downloading the file: {file_name} again!")
         
         else:
-            flash(f"File {file_name} downloaded!")
+            flash(f"{file_name} 已成功下载!")
         
         return response
     
@@ -148,23 +148,24 @@ def upload_file():
             flash('No file')
             return redirect_url_to_page_and_path()
         
-        file = request.files['upload_file_name']
+        files = request.files.getlist('upload_file_name')
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        
-        if file and allowed_file(file.filename):
-            secured_filename = secure_filename(file.filename)
-            # Construct the abs path
-            abs_path_for_upload = safe_join(user_folder, *folder_level)
-            file.save(os.path.join(abs_path_for_upload, secured_filename))
-            return redirect_url_to_page_and_path(current_path)
-        
-        else:
-            flash("File format not supported!")
-    
+        for file in files:
+            if file.filename == '':
+                flash('No selected file')
+                return redirect(request.url)
+
+            if file and allowed_file(file.filename):
+                secured_filename = secure_filename(file.filename)
+                # Construct the absolute path
+                abs_path_for_upload = safe_join(user_folder, *folder_level)
+                file.save(os.path.join(abs_path_for_upload, secured_filename))
+            else:
+                flash(f"{file.filename}的文件格式不支持，请尝试更换文件后缀或重新上传!")
+
+        return redirect_url_to_page_and_path(current_path)
+
     return redirect_url_to_page_and_path()
 
 # Rename file or folder
@@ -256,3 +257,6 @@ def delete_file():
         return jsonify({'success': True}), 200
     
     return jsonify({'error': 'Method not allowed'}), 400
+
+
+

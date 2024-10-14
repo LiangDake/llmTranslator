@@ -34,13 +34,17 @@
               name="path_indicator"
               readonly>
           </div>
+          <form action="{{ url_for('translator.translate_folder') }}" method="POST">
+            <input type="hidden" name="folder_path" value="{{ path_indicator }}">
+            <button type="submit">翻译文件夹中所有文件</button>
+          </form>
 
           <div class="form-outline w-100 mt-1">
             <form action="{{ url_for('user.upload_file') }}" method="POST" enctype=multipart/form-data>
               {{ upload_file_form.csrf_token }}
               {{ upload_file_form.upload_file_name.label(class="hide-labels", for="upload_file_name") }}
               <div class="d-flex">
-                {{ upload_file_form.folder_path(class="", value=path_indicator) }} 
+                {{ upload_file_form.folder_path(class="", value=path_indicator) }}
                 {{ upload_file_form.upload_file_name(class="form-control mx-2 form-control-md w-100", id="upload_file_name") }}
                 {{ upload_file_form.upload_btn(class_="btn primary_buttons btn-sm") }}
               </div>
@@ -53,11 +57,11 @@
           <table style="width: 100%;" class="ms-4 me-4">
             <thead>
               <tr class="">
-                <th class="text_start_table_th">Folders</th>
-                <th class="center_table_th_td">Created Time</th>
-                <th class="center_table_th_td">Modified Time</th>
-                <th class="center_table_th_td">Size</th>
-                <th class="center_table_th_td">Actions</th>
+                <th class="text_start_table_th">文件夹目录</th>
+                <th class="center_table_th_td">文件夹创建时间</th>
+                <th class="center_table_th_td">进入文件夹</th>
+                <th class="center_table_th_td">文件夹大小</th>
+                <th class="center_table_th_td">文件夹操作</th>
               </tr>
             </thead>
             <tbody>
@@ -76,11 +80,11 @@
               
               {% for file in files %}
                 {% if loop.index == 1 %}
-                  <th class="text_start_table_th">Files</th>
-                  <th class="center_table_th_td">Created Time</th>
-                  <th class="center_table_th_td">Modified Time</th>
-                  <th class="center_table_th_td">Size</th>
-                  <th class="center_table_th_td">Actions</th>
+                  <th class="text_start_table_th">文件列表</th>
+                  <th class="center_table_th_td">文件创建时间</th>
+                  <th class="center_table_th_td">翻译文件</th>
+                  <th class="center_table_th_td">文件大小</th>
+                  <th class="center_table_th_td">文件操作</th>
                 {% endif %}
                   {% include 'files_tr.html' %}
               {% endfor %}

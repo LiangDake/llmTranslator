@@ -54,9 +54,14 @@ def get_icon_class(file_name):
     """
     file_extension = Path(file_name).suffix
     file_extension = file_extension[1:] if file_extension.startswith(".") else file_extension
-    
-    file_types = ["aac", "ai", "bmp", "cs", "css", "csv", "doc", "docx", "exe", "gif", "heic", "html", "java", "jpg", "js", "json", "jsx", "key", "m4p", "md", "mdx", "mov", "mp3",
-                 "mp4", "otf", "pdf", "php", "png", "pptx", "psd", "py", "raw", "rb", "sass", "scss", "sh", "sql", "svg", "tiff", "tsx", "ttf", "txt", "wav", "woff", "xlsx", "xml", "yml"]
+
+    if file_extension in ["zip", "exe"]:
+        return "bi bi-file-zip"
+
+    # if file_extension in ["eml", "msg"]:
+    #     return "bi bi-envelope"
+
+    file_types = ["csv", "doc", "docx", "jpg", "pdf", "png"]
     
     file_class_name = f"bi bi-filetype-{file_extension}" if file_extension in file_types else "bi bi-file-earmark"
     

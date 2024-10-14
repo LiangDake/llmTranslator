@@ -1,4 +1,4 @@
-# LocalBin
+# 中科网航大模型平台
 
 # Readme Structure
 - [UI Preview](#ui-Preview)
@@ -13,101 +13,69 @@
 - [Used Languages and Tools](#used-languages-and-tools)
 - [Ways to improve the app](#ways-to-improve-the-app)
 
-#### UI Preview - Use New picture
-![LocalBin](https://github.com/Acrofil/localbin/blob/main/localbin_preview.png)
 
-## Introduction
-This is simple file browser build with Flask. 
-The server interacts with `Linux` filesystems using Python `os` module to perform the tasks.
-Each user has their own private root folder on the server where they can perform basic operations such as
-- Navigating file system
-- Create folders 
-- Upload files
-- Rename files and folders 
-- Delete files and folders.
+## 产品介绍
+这是使用 Flask, Langchain, Ollama构建的本地大模型翻译网页系统。
+服务器使用 Python `os` 模块与 `Linux` 文件系统交互以执行任务。
+每个用户在服务器上都有自己的私有根文件夹，他们可以在其中执行基本操作，例如
+- 创建文件夹和上传文件
+- 翻译文件和文件夹
+- 删除文件和文件夹。
 
-#### Video Demo: - Use other video
-
-
-### How To Install
-##### Clone the repo and cd into it
+### 如何下载
+##### 通过ollama下载本地大模型（目前没有设置自定义模型功能）：
 ```bash
-git clone https://github.com/Acrofil/localbin
-cd localbin
+ollama pull qwen2:7b
+ollama pull yxl/m3e
 ```
 
-##### Create env and activate it
+##### 下载Tesseract及其语言包并安装 PDF 处理库（Linux系统）：
+```bash
+sudo apt update
+sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev
+
+sudo apt install tesseract-ocr-*
+
+sudo apt install poppler-utils
+
+```
+
+##### 下载Tesseract及其语言包并安装 PDF 处理库（Mac系统）：
+```bash
+brew install tesseract
+brew install tesseract-lang
+
+brew install imagemagick
+
+
+```
+##### Github下载并进入文件夹
+```bash
+git clone https://github.com/LiangDake/llmTranslator
+cd llmTranslator
+```
+
+##### 创建虚拟环境
 ```bash
 python -m venv env
 source ./env/bin/activate
 ```
 
-##### Install from requirements.txt and create db
+##### 下载 requirements.txt 并创建 db 数据库
 ```bash
 pip install -r requirements.txt
+pip install pytesseract pdf2image wand
+pip install python-docx
+
 python
 from localbin import db
 db.create_all()
 ```
 
-##### Run flask app in debug mode
+##### 运行网页
 ```bash
 flask --app run run --debug
 ```
 
-#### Web Client
-The web client is build with `Python`, `Jinja`, `HTML`, `CSS`, `Bootstrap` and `JavaScript`
-There is Login and Registration page. Form validation is handled on server side and users are notified if form validation fails.
-Each user has their own personal folder in the server where they can expand further.
-`users_space/username` is the location for each user that we have and this is also the root for them at `username`.
-The web client consists of simple UI where users can see their current path in their space with properties for files and folders.
-Create new folder, rename files and folders, delete files and folders, navigate and upload are the operations users can perform.
-The web client and server are developed under Linux and the os commands used are for Linux only. 
-No support for now for other OS's.
 
-##### File System Interaction
-File system interaction is handled by `Python` and `os` module. File information is displayed with the `os.stat()` and then converted to human readable data.
-* Navigate throuh user space by clicking the backward arrow or hitting the folder icon to go back to the root folder.
-* Create new folders.
-* Upload files. 
-* Rename files and folders.
-* Delete files and folders (for folders only empty folders can be deleted).
-
-#### Folder Navigation
-Each user has his own root folder. In this example their path is `/home/username`
-- Users can navigate in their folders in 3 ways
-* By clicking on the root folder icon next to the path indicator
-* Go in a folder by clicking unto it or clicking the arrow next to the other interaction buttons
-* By going back from the arrow icon
-
-#### File Manipulation
-Users can perform basic operations which include:
-* Create new folders
-* Upload files 
-* Download files and check hash data for integrity
-* Read/view files directly in the client
-* Rename files and folders
-* Delete files and folders
-
-#### Security Considerations
-For the security of the web server are considered the following: 
-* Login is requiered to perform any operations
-* Users cannot manipulate other users folders and files. This is done by storing the user name/id in the session
-* For handling special cases like `..`, `../..` all files and folders are sanitized/secured.
-* File upload is possible only for supported formats `[jpg, jpeg, pdf, txt, gif, 'png]` and maximum size of 15mb. 
-* Each user input is validated and sanitized
-* Renaming of files is possible only for the main text not the suffix after .
-
-##### Used Languages and Tools:
-* Flask, flask_login, wtforms, flask_wtf, flask_sqlalchemy, sqlite3, JavaScript, Jinja, HTML, CSS, Bootstrap, Git, Linux, VsCode
-
-##### Ways to improve the app
-* Add tooltip information for better UI experience
-* Add more confirmation checks for some operations
-* Support wider range of files
-* Validate files using library like libmagick
-* Scan files for malicious code using ClamAV
-* Add more features to the database like store files on remote server and only store the cdn related to the user id
-* Use different database
-* Support other OS's
-* Make Docker image

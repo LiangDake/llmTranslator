@@ -1,5 +1,5 @@
 function confirmDeletion(displayName) {
-    let warningText = `You are about to delete ${displayName} Are you sure?`;
+    let warningText = `您确定要删除 ${displayName} 吗？`;
 
     if (confirm(warningText) == true) {
         return true;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    throw new Error('Failed to delete file');
+                    throw new Error('删除失败');
                 }
             })
             .then(data => {
