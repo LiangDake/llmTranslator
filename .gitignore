@@ -1,8 +1,8 @@
 # exclude everything
-users_space/*
+localbin/users_space/
 
 # exception to the rule
-!users_space/.gitkeep 
+!localbin/users_space/.gitkeep
 
 # Ignore this folders
 .env
