@@ -1,5 +1,5 @@
 function confirmDeletion(displayName) {
-    let warningText = `您确定要删除 ${displayName} 吗？`;
+    let warningText = `您确定要删除 ${displayName} 及其里面的所有文件及文件夹吗？`;
 
     if (confirm(warningText) == true) {
         return true;

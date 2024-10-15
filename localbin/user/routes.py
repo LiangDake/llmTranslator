@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from flask_login import login_required
 
@@ -169,7 +170,9 @@ def upload_file():
                 if file.filename.endswith('.zip'):
                     try:
                         file_processing.unzip(full_file_path, abs_path_for_upload)
-                        flash(f"{file.filename} 已成功上传并解压缩！")
+                        # 解压缩成功后删除原始 .zip 文件
+                        os.remove(full_file_path)
+                        flash(f"{file.filename} 已成功解压缩并上传，请检查文件是否遗漏！")
                     except Exception as e:
                         flash(f"解压缩 {file.filename} 失败: {str(e)}")
 
@@ -253,17 +256,10 @@ def delete_file():
         try:
             if os.path.isfile(full_path_to_file):
                 os.remove(full_path_to_file)
-                
+
             elif os.path.isdir(full_path_to_file):
-                
-                dir_len = os.listdir(full_path_to_file)
-                
-                if len(dir_len) == 0:
-                    
-                    os.rmdir(full_path_to_file)
-                else:
-                    flash("Directory is not empty! Aborting!")
-                    return jsonify({'error': 'Folder is not empty!'}), 400
+
+                shutil.rmtree(full_path_to_file)
                 
         except Exception:
             flash("File cannot be deleted! Sorry")

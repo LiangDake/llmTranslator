@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, request, redirect
+from flask import Blueprint, request, redirect, flash
 from flask_login import login_required
 from werkzeug.security import safe_join
 from werkzeug.utils import secure_filename
@@ -55,14 +55,16 @@ def translate_file():
     if not os.path.exists(translated_directory):
         os.makedirs(translated_directory)
 
+    flash(f"{file_path}正在翻译中，请等待...")
     # 调用翻译函数，返回翻译后的文件路径
     translated_file_path = translate(
         file_path=abs_path,
         translated_folder_path=translated_directory,
         source_lang=source_lang
     )
-
-    return redirect_url_to_page_and_path(file_path)
+    parent_path = os.path.dirname(file_path)
+    flash("文件翻译成功！请刷新网页或点击translated文件夹查看！")
+    return redirect_url_to_page_and_path(parent_path)
 
 
 @translator.route("/translate_folder", methods=["POST"])
@@ -86,18 +88,14 @@ def translate_folder():
 
     # 获得文件夹中所有文件，作为数组
     files = file_processing.get_files_with_absolute_paths(abs_path_to_folder)
-
-    # 用来记录成功和失败的文件
-    successful_translations = []
-    failed_translations = []
-
     for file_path in files:
         try:
             # 进行翻译
+            flash(f"{file_path}正在翻译中，请等待...")
             translated_file_path = translate(file_path=file_path, translated_folder_path=translated_directory, source_lang=source_lang)
-            successful_translations.append(file_path)  # 翻译成功
         except (IOError, ValueError) as e:
             print(f"Translation error for {file_path}: {str(e)}")
-            failed_translations.append((file_path, str(e)))  # 翻译失败，记录错误信息
 
+    flash("文件夹所有文件翻译成功！请刷新网页或点击translated文件夹查看，请仔细检查是否有未翻译的文件！")
     return redirect_url_to_page_and_path(to_path=folder_path)
+
