@@ -4,6 +4,8 @@ localbin/users_space/
 # exception to the rule
 !localbin/users_space/.gitkeep
 
+test.py
+
 # Ignore this folders
 .env
 __pycache__

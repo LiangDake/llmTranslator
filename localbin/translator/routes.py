@@ -23,6 +23,7 @@ def translate(file_path, translated_folder_path, source_lang = 'osd', target_lan
             translated_file_path = tools.QueryFileBase().translate_email(
                 file_path,
                 translated_folder_path,
+                source_lang,
                 target_lang
             )
         else:
@@ -61,7 +62,7 @@ def translate_file():
         source_lang=source_lang
     )
 
-    return redirect_url_to_page_and_path()
+    return redirect_url_to_page_and_path(file_path)
 
 
 @translator.route("/translate_folder", methods=["POST"])
@@ -70,6 +71,7 @@ def translate_file():
 def translate_folder():
     # 获取到文件夹相对路径
     folder_path = request.form.get("folder_path")
+    source_lang = request.form.get('source_lang')  # 获取源语言缩写
     # 去掉前面的斜杠
     folder_path = folder_path.lstrip('/')
     # 获取到当前用户文件夹地址 例如：/Users/liangdake/localbin/localbin/users_space/liangke
@@ -92,7 +94,7 @@ def translate_folder():
     for file_path in files:
         try:
             # 进行翻译
-            translated_file_path = translate(file_path=file_path, translated_folder_path=translated_directory)
+            translated_file_path = translate(file_path=file_path, translated_folder_path=translated_directory, source_lang=source_lang)
             successful_translations.append(file_path)  # 翻译成功
         except (IOError, ValueError) as e:
             print(f"Translation error for {file_path}: {str(e)}")

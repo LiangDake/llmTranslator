@@ -57,7 +57,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Configure allowed files and max size
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mkv', 'avi', 'eml', 'zip'}
 
-app.config['MAX_CONTENT_LENGTH'] = (15 * 1024) * 1024
+app.config['MAX_CONTENT_LENGTH'] = (1024 * 1024 * 1024) * 1024
 
 #def allowed_mime_type(file):
 #    mime = magic.from_buffer(file.stream.read(2048), mime=True)

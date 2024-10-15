@@ -64,6 +64,7 @@ pip install -r requirements.txt
 python
 from localbin import db
 db.create_all()
+exit()
 ```
 
 ##### 运行网页

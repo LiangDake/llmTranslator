@@ -221,7 +221,7 @@ class QueryFileBase(QueryKnowledgeBase):
 
             return translated_file_path
 
-    def translate_email(self, file_path: str, translated_folder_path, target_lang='中文'):
+    def translate_email(self, file_path: str, translated_folder_path, source_lang='osd' ,target_lang='中文'):
         # 导入邮件获得结果
         result = file_processing.import_email(file_path, "email")
         # 邮件正文
@@ -250,7 +250,7 @@ class QueryFileBase(QueryKnowledgeBase):
             # 遍历附件并翻译
             for file_name in attachments:
                 attachment_file_path = os.path.join(attachment_folder, file_name)
-                translated_file_path = self.translate_file_without_eml(attachment_file_path, translated_folder_path, target_lang)
+                translated_file_path = self.translate_file_without_eml(attachment_file_path, translated_folder_path, source_lang, target_lang)
                 translated_attachments.append(translated_file_path)
 
         # 重新创建新的EML

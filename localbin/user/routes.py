@@ -6,6 +6,8 @@ from flask import request, flash, redirect, abort, session, url_for
 from flask import send_file, jsonify
 from werkzeug.security import safe_join
 from werkzeug.utils import secure_filename
+
+from localbin.translator import file_processing
 from localbin.utils.folder_navigation import redirect_url_to_page_and_path
 from localbin.utils.secure_files_and_folders import sanitize_folder_name, calculate_file_hash, allowed_file
 from localbin.utils.folder_navigation import get_user_upload_folder
@@ -160,7 +162,20 @@ def upload_file():
                 secured_filename = secure_filename(file.filename)
                 # Construct the absolute path
                 abs_path_for_upload = safe_join(user_folder, *folder_level)
-                file.save(os.path.join(abs_path_for_upload, secured_filename))
+                full_file_path = os.path.join(abs_path_for_upload, secured_filename)
+                file.save(full_file_path)
+
+                # Check if the file is a zip and handle accordingly
+                if file.filename.endswith('.zip'):
+                    try:
+                        file_processing.unzip(full_file_path, abs_path_for_upload)
+                        flash(f"{file.filename} 已成功上传并解压缩！")
+                    except Exception as e:
+                        flash(f"解压缩 {file.filename} 失败: {str(e)}")
+
+                else:
+                    flash(f"{file.filename} 已成功上传！")
+
             else:
                 flash(f"{file.filename}的文件格式不支持，请尝试更换文件后缀或重新上传!")
 
