@@ -314,7 +314,7 @@ def save_translated_docx(filepath, translated_content, translated_folder_path):
 # 保存已翻译文件为PDF
 def save_translated_pdf(filepath, translated_content, translated_folder_path):
     # 设置字体路径，确保下载并提供支持中文的字体
-    font_path = "/Users/liangdake/Downloads/工作/人工智能实习/SimSun.ttf"  # 替换为你下载的字体文件路径
+    font_path = "localbin/translator/SimSun.ttf"  # 替换为你下载的字体文件路径
     if not os.path.exists(font_path):
         raise FileNotFoundError(f"字体文件未找到：{font_path}")
 
