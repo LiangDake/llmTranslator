@@ -54,8 +54,6 @@ def translate_file():
     # 创建子文件夹（如果不存在的话）
     if not os.path.exists(translated_directory):
         os.makedirs(translated_directory)
-
-    flash(f"{file_path}正在翻译中，请等待...")
     # 调用翻译函数，返回翻译后的文件路径
     translated_file_path = translate(
         file_path=abs_path,
@@ -91,7 +89,6 @@ def translate_folder():
     for file_path in files:
         try:
             # 进行翻译
-            flash(f"{file_path}正在翻译中，请等待...")
             translated_file_path = translate(file_path=file_path, translated_folder_path=translated_directory, source_lang=source_lang)
         except (IOError, ValueError) as e:
             print(f"Translation error for {file_path}: {str(e)}")
