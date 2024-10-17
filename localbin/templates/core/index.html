@@ -34,20 +34,6 @@
               name="path_indicator"
               readonly>
           </div>
-          <form action="{{ url_for('translator.translate_folder') }}" method="POST">
-            <input type="hidden" name="folder_path" value="{{ path_indicator }}">
-                                    <!-- 源语言选择下拉框 -->
-            <label for="source_lang">选择源语言:</label>
-            <select name="source_lang" id="source_lang">
-              <!-- 循环动态生成选项 -->
-              <option value="osd">自动检测</option>
-              {% for language in languages %}
-                <option value="{{ language.Code }}">{{ language.Title }}</option>
-              {% endfor %}
-            </select>
-            <button type="submit">翻译文件夹中所有文件</button>
-          </form>
-
           <div class="form-outline w-100 mt-1">
             <form action="{{ url_for('user.upload_file') }}" method="POST" enctype=multipart/form-data>
               {{ upload_file_form.csrf_token }}
@@ -59,6 +45,21 @@
               </div>
             </form>
           </div>
+
+          <form action="{{ url_for('translator.translate_folder') }}" method="POST">
+            <input type="hidden" name="folder_path" value="{{ path_indicator }}">
+                                    <!-- 源语言选择下拉框 -->
+            <label for="source_lang">源语言:</label>
+            <select name="source_lang" id="source_lang">
+              <!-- 循环动态生成选项 -->
+              <option value="osd">自动检测</option>
+              {% for language in languages %}
+                <option value="{{ language.Code }}">{{ language.Title }}</option>
+              {% endfor %}
+            </select>
+            <button type="submit">翻译当前文件夹所有文件</button>
+          </form>
+
         </div>
             </div>
       
@@ -93,6 +94,7 @@
                   <th class="center_table_th_td">文件创建时间</th>
                   <th class="center_table_th_td">翻译文件</th>
                   <th class="center_table_th_td">文件大小</th>
+                  <th class="center_table_th_td">是否翻译</th>
                   <th class="center_table_th_td">文件操作</th>
                 {% endif %}
                   {% include 'files_tr.html' %}

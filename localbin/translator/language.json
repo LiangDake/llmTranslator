@@ -1,7 +1,7 @@
 [
     {
         "Code": "amh",
-        "Title": "Amharic(阿姆哈拉语)"
+        "Title": "阿姆哈拉语"
     },
     {
         "Code": "ara",
@@ -13,7 +13,7 @@
     },
     {
         "Code": "aze",
-        "Title": "Azerbaijani(阿塞拜疆)"
+        "Title": "阿塞拜疆"
     },
     {
         "Code": "aze_cyrl",
@@ -21,7 +21,7 @@
     },
     {
         "Code": "bel",
-        "Title": "Belarusian(白俄罗斯)"
+        "Title": "白俄罗斯"
     },
     {
         "Code": "ben",
@@ -41,7 +41,7 @@
     },
     {
         "Code": "cat",
-        "Title": "加泰罗尼亚语; 巴伦西亚)"
+        "Title": "加泰罗尼亚语"
     },
     {
         "Code": "ceb",
@@ -101,7 +101,7 @@
     },
     {
         "Code": "equ",
-        "Title": "(数学/方程式检测模块)"
+        "Title": "数学方程式检测"
     },
     {
         "Code": "est",
@@ -173,7 +173,7 @@
     },
     {
         "Code": "ita_old",
-        "Title": "Italian - Old(意大利语-旧)"
+        "Title": "(意大利语-旧)"
     },
     {
         "Code": "jav",
@@ -193,7 +193,7 @@
     },
     {
         "Code": "kat_old",
-        "Title": "Georgian - Old(格鲁吉亚-旧)"
+        "Title": "(格鲁吉亚-旧)"
     },
     {
         "Code": "kaz",
@@ -201,7 +201,7 @@
     },
     {
         "Code": "khm",
-        "Title": "Central Khmer(中央高棉)"
+        "Title": "(中央高棉)"
     },
     {
         "Code": "kir",
@@ -233,7 +233,7 @@
     },
     {
         "Code": "mal",
-        "Title": "Malayalam(马拉雅拉姆语)"
+        "Title": "(马拉雅拉姆语)"
     },
     {
         "Code": "mar",
@@ -241,7 +241,7 @@
     },
     {
         "Code": "mkd",
-        "Title": "Macedonian(马其顿)"
+        "Title": "(马其顿)"
     },
     {
         "Code": "mlt",
@@ -261,7 +261,7 @@
     },
     {
         "Code": "nld",
-        "Title": "Dutch; Flemish(荷兰; 佛兰芒语)"
+        "Title": "(荷兰; 佛兰芒语)"
     },
     {
         "Code": "nor",
@@ -277,15 +277,15 @@
     },
     {
         "Code": "por",
-        "Title": "Portuguese(葡萄牙语)"
+        "Title": "(葡萄牙语)"
     },
     {
         "Code": "pus",
-        "Title": "(普什图语; 普什图语)"
+        "Title": "普什图语"
     },
     {
         "Code": "ron",
-        "Title": "(罗马尼亚; 摩尔多瓦; 摩尔多瓦)"
+        "Title": "(罗马尼亚 摩尔多瓦)"
     },
     {
         "Code": "rus",
@@ -301,15 +301,15 @@
     },
     {
         "Code": "slk_frak",
-        "Title": "(斯洛伐克- Fraktur)"
+        "Title": "斯洛伐克-Fraktur"
     },
     {
         "Code": "slv",
-        "Title": "Slovenian(斯洛文尼亚)"
+        "Title": "斯洛文尼亚"
     },
     {
         "Code": "spa",
-        "Title": "(西班牙语; 卡斯蒂利亚)"
+        "Title": "西班牙语"
     },
     {
         "Code": "sqi",
@@ -321,7 +321,7 @@
     },
     {
         "Code": "srp_latn",
-        "Title": "Serbian(塞尔维亚语-拉丁语)"
+        "Title": "(塞尔维亚-拉丁语)"
     },
     {
         "Code": "swa",
@@ -381,7 +381,7 @@
     },
     {
         "Code": "uzb_cyrl",
-        "Title": "(乌兹别克斯坦- Cyrilic)"
+        "Title": "(乌兹别克斯坦-Cyrilic)"
     },
     {
         "Code": "vie",

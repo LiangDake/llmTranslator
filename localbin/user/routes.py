@@ -3,12 +3,13 @@ import shutil
 
 from flask_login import login_required
 
-from flask import request, flash, redirect, abort, session, url_for
+from flask import request, flash, redirect, abort, session, url_for, render_template
 from flask import send_file, jsonify
 from werkzeug.security import safe_join
 from werkzeug.utils import secure_filename
 
 from localbin.translator import file_processing
+from localbin.utils.compare_file import read_file_content, get_translated_file_path
 from localbin.utils.folder_navigation import redirect_url_to_page_and_path
 from localbin.utils.secure_files_and_folders import sanitize_folder_name, calculate_file_hash, allowed_file
 from localbin.utils.folder_navigation import get_user_upload_folder
@@ -229,30 +230,30 @@ def rename():
         return jsonify({'success': True, 'renamed_file': new_file_name}), 200
     else:
         return jsonify({'error': 'Method not allowed'}), 400
-    
+
 # Route for deleting file
 @user.route("/delete_file", methods=["POST"])
 @login_required
 def delete_file():
-    
+
     if request.method == "POST":
         user = session['user']
         file_to_delete = request.json.get('delete_file')
         path_to_file = request.json.get('path_to_delete_file')
-   
+
         # Construct the path
         user_folder = get_user_upload_folder()
         folder_level = path_to_file[1:].split("/")
         full_path_to_file = os.path.join(user_folder, *folder_level, file_to_delete)
-        
+
         if not user in full_path_to_file:
             flash("Not allowed!")
             return abort(404)
-        
+
         if not os.path.exists(full_path_to_file):
             flash("Error deleting! No such file")
             return jsonify({'error': 'No such file!'}), 400
-        
+
         try:
             if os.path.isfile(full_path_to_file):
                 os.remove(full_path_to_file)
@@ -260,14 +261,40 @@ def delete_file():
             elif os.path.isdir(full_path_to_file):
 
                 shutil.rmtree(full_path_to_file)
-                
+
         except Exception:
             flash("File cannot be deleted! Sorry")
-            return jsonify({'error': 'Error!'}), 400  
-        
+            return jsonify({'error': 'Error!'}), 400
+
         return jsonify({'success': True}), 200
-    
+
     return jsonify({'error': 'Method not allowed'}), 400
 
 
+# 对比文件的路由
+@user.route('/compare')
+@login_required
+def compare_files():
+    # 原始文件路径
+    file_path = request.args.get('file_link')
+    user_folder = get_user_upload_folder()
+    abs_path = safe_join(user_folder, file_path)
+    translated_file_path = get_translated_file_path(abs_path)
+    # 检查文件是否存在
+    if not os.path.exists(abs_path):
+        return f"原文件 {file_path} 未找到！", 404
+    else:
+        # 读取原文件和翻译文件内容
+        original_content = read_file_content(abs_path)
+    if not os.path.exists(translated_file_path):
+        translated_content = "文件未翻译或无法找到已翻译文件！"
+    else:
+        # 读取翻译文件内容
+        translated_content = read_file_content(translated_file_path)
 
+    # 渲染模板
+    return render_template('core/compare.html',
+                           original_filename=os.path.basename(abs_path),
+                           translated_filename=os.path.basename(translated_file_path),
+                           original_content=original_content,
+                           translated_content=translated_content)

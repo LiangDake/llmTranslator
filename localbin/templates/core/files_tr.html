@@ -29,7 +29,7 @@
           <form action="{{ url_for('translator.translate_file') }}" method="POST">
             <input type="hidden" name="file_path" value="{{ file.file_link }}">
                         <!-- 源语言选择下拉框 -->
-          <label for="source_lang">选择源语言:</label>
+          <label for="source_lang">源语言:</label>
           <select name="source_lang" id="source_lang">
             <!-- 循环动态生成选项 -->
             <option value="osd">自动检测</option>
@@ -46,8 +46,16 @@
 
     <td class="center_table_th_td">{{ file.size }}</td>
     <td class="center_table_th_td">
+                    {% if file.file_is_translated and file.file_type == 'file' %}
+                        <span style="color: green;">已翻译</span>
+                    {% else %}
+                        <span style="color: red;">未翻译</span>
+                    {% endif %}
+                </td>
+    <td class="center_table_th_td">
       {% if 'file' in file.file_icon %}
-      <a href="{{ url_for('user.download', requested_file=file.file_link) }}" class="ms-2 download_icon"><i class="bi bi-box-arrow-down h4"></i></a>
+      <a href="{{ url_for('user.compare_files', file_link=file.file_link, source_lang = source_lang) }}" class="ms-2 download_icon"><i class="bi bi-eye h3"></i></a>
+        <a href="{{ url_for('user.download', requested_file=file.file_link) }}" class="ms-2 download_icon"><i class="bi bi-box-arrow-down h4"></i></a>
       {% else %}
         <a class="ms-2 right_arrow_icon" href="{{ url_for('core.index', requested_path=file.file_link) }}"><i class="bi bi-arrow-right-square-fill h4"></i></a>
       {% endif %}

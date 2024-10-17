@@ -20,6 +20,14 @@ def convert_file_stat(file, user_path):
     file_icon = "bi bi-folder-fill" if os.path.isdir(file.path) else get_icon_class(file.name)
     file_type = "folder" if os.path.isdir(file.path) else "file"
 
+    # 构建翻译文件的名称
+    translated_filename = file.name.replace('.', '_Translated.')
+    translated_directory = os.path.join(os.path.dirname(file.path), 'translated')
+    # 创建子文件夹（如果不存在的话）
+    if not os.path.exists(translated_directory):
+        os.makedirs(translated_directory)
+    file_is_translated = os.path.exists(os.path.join(translated_directory, translated_filename))
+
     return {'name': file.name,
             'size': file_bytes,
             'created_time':file_created_time,
@@ -27,6 +35,7 @@ def convert_file_stat(file, user_path):
             'file_icon': file_icon,
             'file_link': os.path.relpath(file.path, user_path),
             'file_type': file_type,
+            'file_is_translated': file_is_translated
             }
 
 def get_readable_byte_size(num, suffix="B"):

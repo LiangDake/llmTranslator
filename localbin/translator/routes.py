@@ -87,6 +87,14 @@ def translate_folder():
     # 获得文件夹中所有文件，作为数组
     files = file_processing.get_files_with_absolute_paths(abs_path_to_folder)
     for file_path in files:
+        # 获取文件名并构造翻译文件路径
+        filename = os.path.basename(file_path)
+        translated_file_path = os.path.join(translated_directory, filename.replace('.', '_translated.'))
+
+        # 跳过已翻译的文件
+        if os.path.exists(translated_file_path):
+            print(f"Skipping translation for {filename}: already translated.")
+            continue
         try:
             # 进行翻译
             translated_file_path = translate(file_path=file_path, translated_folder_path=translated_directory, source_lang=source_lang)

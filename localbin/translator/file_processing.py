@@ -165,7 +165,7 @@ def import_file(file_path: str, lang='osd'):
 
         doc = [Document(page_content=full_text)]
 
-    elif file_type in ('.png', '.jpg'):
+    elif file_type in ('.png', '.jpg', 'jpeg'):
         # doc = UnstructuredImageLoader(file_path).load()
         # 打开图像文件
         img = Image.open(file_path)

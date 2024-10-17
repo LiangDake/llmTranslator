@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let deleteFileConfirmation = confirmDeletion(displayName.value);
 
             if (!deleteFileConfirmation) {
-                location.reload();
+                return;
             };
             
             fetch('/delete_file', {

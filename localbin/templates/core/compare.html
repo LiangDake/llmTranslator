@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Comparison</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100vh;
+        }
+        .file-section {
+            width: 48%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+            word-wrap: break-word;
+        }
+        .email-comparison {
+        display: flex;
+        justify-content: space-between;
+        overflow: auto; /* 允许溢出时出现滚动条 */
+        }
+        .original-email, .translated-email {
+            width: 45%;  /* 调整两边的宽度 */
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            overflow: auto;  /* 当内容溢出时显示滚动条 */
+            max-height: 600px;
+        }
+        pre {
+            white-space: pre-wrap;  /* 自动换行 */
+            word-wrap: break-word;
+            line-height: 1.6;  /* 调整行距 */
+            font-family: "Courier New", Courier, monospace;  /* 使用等宽字体，便于阅读 */
+            background-color: #fafafa;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="file-section">
+            <h3>原始文件: {{ original_filename }}</h3>
+            <pre>{{ original_content }}</pre>
+        </div>
+        <div class="file-section">
+            <h3>已翻译文件: {{ translated_filename }}</h3>
+            <pre>{{ translated_content }}</pre>
+        </div>
+    </div>
+</body>
+</html>
