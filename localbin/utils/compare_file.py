@@ -25,26 +25,9 @@ def get_translated_file_path(file_link):
 
 
 # 读取PDF文件内容
-def read_content(file_path):
-    # 获取文件类型
-    global text
-    text = ""
-    _, file_type = os.path.splitext(file_path)
-    file_type = file_type.lower()
-
-    if file_type in '.pdf':
-        doc = PyPDFLoader(file_path, extract_images=True).load()
-        num_pages = len(doc)
-        for i in range(1, num_pages):
-            doc[0].page_content = doc[0].page_content + doc[i].page_content
-        text = doc[0].page_content
-
-    elif file_type in ('.png', '.jpg', 'jpeg'):
-        doc = UnstructuredImageLoader(file_path).load()
-        text = doc[0].page_content
-    else:
-        doc = import_file(file_path)
-        text = doc[0].page_content
+def read_content(file_path, lang):
+    doc = import_file(file_path, lang)
+    text = doc[0].page_content
     return text
 
 
@@ -81,10 +64,10 @@ def read_eml_content(file_path: str):
 
 
 # 读取文件内容，根据文件扩展名调用不同的处理方法
-def read_file_content(file_path):
+def read_file_content(file_path, lang):
     ext = os.path.splitext(file_path)[1].lower()
     if ext == '.eml':
         return read_eml_content(file_path)
     else:
-        return read_content(file_path)
+        return read_content(file_path, lang)
 

@@ -277,6 +277,7 @@ def delete_file():
 def compare_files():
     # 原始文件路径
     file_path = request.args.get('file_link')
+    lang = request.args.get('lang')
     user_folder = get_user_upload_folder()
     abs_path = safe_join(user_folder, file_path)
     translated_file_path = get_translated_file_path(abs_path)
@@ -285,12 +286,12 @@ def compare_files():
         return f"原文件 {file_path} 未找到！", 404
     else:
         # 读取原文件和翻译文件内容
-        original_content = read_file_content(abs_path)
+        original_content = read_file_content(abs_path, lang=lang)
     if not os.path.exists(translated_file_path):
         translated_content = "文件未翻译或无法找到已翻译文件！"
     else:
         # 读取翻译文件内容
-        translated_content = read_file_content(translated_file_path)
+        translated_content = read_file_content(translated_file_path, lang='chi_sim')
 
     # 渲染模板
     return render_template('core/compare.html',

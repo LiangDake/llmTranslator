@@ -68,7 +68,6 @@
             <thead>
               <tr class="">
                 <th class="text_start_table_th">文件夹目录</th>
-                <th class="center_table_th_td">文件夹创建时间</th>
                 <th class="center_table_th_td">进入文件夹</th>
                 <th class="center_table_th_td">文件夹大小</th>
                 <th class="center_table_th_td">文件夹操作</th>
@@ -91,10 +90,10 @@
               {% for file in files %}
                 {% if loop.index == 1 %}
                   <th class="text_start_table_th">文件列表</th>
-                  <th class="center_table_th_td">文件创建时间</th>
                   <th class="center_table_th_td">翻译文件</th>
                   <th class="center_table_th_td">文件大小</th>
                   <th class="center_table_th_td">是否翻译</th>
+                  <th class="center_table_th_td">预览文件</th>
                   <th class="center_table_th_td">文件操作</th>
                 {% endif %}
                   {% include 'files_tr.html' %}
