@@ -47,41 +47,35 @@
     <td class="center_table_th_td">
                     {% if file.file_is_translated and file.file_type == 'file' %}
                         <span style="color: green;">已翻译</span>
+                    {% elif file.file_type == 'folder' %}
                     {% else %}
                         <span style="color: red;">未翻译</span>
                     {% endif %}
     </td>
     <td class="center_table_th_td">
       {% if 'file' in file.file_icon %}
-<!--        <a href="{{ url_for('user.compare_files', file_link=file.file_link, source_lang = source_lang) }}"><i class="bi bi-eye h3"></i></a>-->
         <form action="{{ url_for('user.compare_files') }}" method="GET">
-    <!-- 文件路径，隐藏输入 -->
-    <input type="hidden" name="file_link" value="{{ file.file_link }}">
+            <!-- 文件路径，隐藏输入 -->
+            <input type="hidden" name="file_link" value="{{ file.file_link }}">
 
-    <!-- 源语言选择下拉框 -->
-    <label for="lang">源语言:</label>
-    <select name="lang" id="lang">
-        <!-- 自动检测选项 -->
-        <option value="osd">自动检测</option>
-        <!-- 循环动态生成语言选项 -->
-        {% for language in languages %}
-          <option value="{{ language.Code }}">{{ language.Title }}</option>
-        {% endfor %}
-    </select>
+            <!-- 源语言选择下拉框 -->
+            <select name="lang" id="lang">
+                <!-- 自动检测选项 -->
+                <option value="osd">自动检测</option>
+                <!-- 循环动态生成语言选项 -->
+                {% for language in languages %}
+                  <option value="{{ language.Code }}">{{ language.Title }}</option>
+                {% endfor %}
+            </select>
 
-    <!-- 提交按钮（图标按钮） -->
-    <button type="submit" class="bi bi-eye h3"></button>
-</form>
-
-      {% else %}
-        <a class="ms-2 right_arrow_icon" href="{{ url_for('core.index', requested_path=file.file_link) }}"><i class="bi bi-arrow-right-square-fill h4"></i></a>
+            <!-- 提交按钮（图标按钮） -->
+            <button type="submit" class="bi bi-eye h5"></button>
+        </form>
       {% endif %}
     </td>
     <td class="center_table_th_td">
       {% if 'file' in file.file_icon %}
         <a href="{{ url_for('user.download', requested_file=file.file_link) }}" class="ms-2 download_icon"><i class="bi bi-box-arrow-down h4"></i></a>
-      {% else %}
-        <a class="ms-2 right_arrow_icon" href="{{ url_for('core.index', requested_path=file.file_link) }}"><i class="bi bi-arrow-right-square-fill h4"></i></a>
       {% endif %}
       <i class="bi bi-pencil-square h4 edit_file_name"></i>
       <i  class="bi bi-x-square-fill h4 delete_file delete_btn" value={{path_indicator}}></i>

@@ -61,7 +61,7 @@ def translate_file():
         source_lang=source_lang
     )
     parent_path = os.path.dirname(file_path)
-    flash("文件翻译成功！请刷新网页或点击translated文件夹查看！")
+    flash("文件翻译成功！请点击右侧预览按钮或进入translated文件夹查看！")
     return redirect_url_to_page_and_path(parent_path)
 
 
@@ -101,6 +101,6 @@ def translate_folder():
         except (IOError, ValueError) as e:
             print(f"Translation error for {file_path}: {str(e)}")
 
-    flash("文件夹所有文件翻译成功！请刷新网页或点击translated文件夹查看，请仔细检查是否有未翻译的文件！")
+    flash("当前文件夹所有文件翻译成功！请点击右侧预览按钮或进入translated文件夹查看！")
     return redirect_url_to_page_and_path(to_path=folder_path)
 

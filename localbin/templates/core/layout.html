@@ -22,7 +22,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 navbar1">
-        <a class="navbar-brand ms-2" href="#">Logo</a>
         <ul class="navbar-nav mr-auto">
             {% if current_user.is_authenticated %}
                <li class="nav-item active">
@@ -42,9 +41,6 @@
          {% if current_user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="#">文档</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">帮助</a>
             </li>
           <li class="nav-item">
               <a class="nav-link " href="{{ url_for('auth.logout') }}">退出</a>
@@ -72,105 +68,6 @@
         {% block body %}
         {%endblock body %}
       </section>
-
-    <!-- Footer -->
-
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 footer-column">
-        <ul class="nav d-flex flex-column">
-          <li class="nav-item">
-            <span class="footer-title">Links</span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Documentation</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 footer-column">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <span class="footer-title">LocalBin</span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 footer-column">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <span class="footer-title">Contact & Support</span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-comments"></i>GitHub</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-envelope"></i>Email</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-star"></i>Give feedback</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="text-center"><i class="fas fa-ellipsis-h"></i></div>
-    
-    <div class="row text-center">
-      <div class="col-md-4 box">
-        <span class="copyright quick-links">Developed &copy; By 梁大可
-        </span>
-      </div>
-      <div class="col-md-4 box">
-        <ul class="list-inline social-buttons">
-          <li class="list-inline-item">
-            <a href="#">
-            <i class="bi bi-github"></i>
-          </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-            <i class="bi bi-facebook"></i>
-          </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 box">
-        <ul class="list-inline quick-links">
-          <li class="list-inline-item">
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">Terms of Use</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    
     <!-- Script link -->
 
     <!-- JavaScript link  <script src="{{ url_for('static', filename='file_browser.js') }}" defer></script> -->
